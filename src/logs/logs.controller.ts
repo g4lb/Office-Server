@@ -29,7 +29,7 @@ export class LogsController {
     return this.logsService.getLogs(employeeIdRequest.employeeId);
   }
 
-  @ApiOperation({ summary: 'Get all exposed employee' })
+  @ApiOperation({ summary: 'Get all exposed employees' })
   @Post('positive-diagnosis')
   async notifyExposedEmployees(@Body(new JoiValidationPipe(LogsValidations.employeeIdValidator())) employeeIdRequest: EmployeeIdRequest) {
     const exposedEmployees = await this.logsService.getExposedEmployees(employeeIdRequest.employeeId);

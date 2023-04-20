@@ -26,9 +26,10 @@ To run the application in a Docker container, first build the Docker image:
 
 ```bash
 docker build -t office-server .
-
-Then run the application in a Docker container:
 ```
-docker run -p 5000:5000 office-server
+Then run the application in a Docker container:
+
 ```bash
+docker run -p 5000:5000 office-server
+```
 This will start a container with the application running on port 5000.

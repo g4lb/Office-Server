@@ -14,14 +14,14 @@ npm run start
 ```
 The server will start listening on port 5000.
 
-# Swagger
-Open your web browser and navigate to http://localhost:5000/logs to access Swagger UI and explore the API endpoints.
-
 # Running the Tests
 To run the tests, run:
 ```bash
 npm run test
 ```
+
+# Swagger
+Open your web browser and navigate to http://localhost:5000/logs to access Swagger UI and explore the API endpoints.
 
 # Docker
 To run the application in a Docker container, first build the Docker image:

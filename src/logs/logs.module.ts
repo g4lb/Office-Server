@@ -5,10 +5,8 @@ import { Logs } from './logs.entity';
 import { LogsService } from './logs.service';
 
 @Module({
-    imports: [
-      TypeOrmModule.forFeature([Logs]),
-    ],
-    controllers: [LogsController],
-    providers: [LogsService],
-  })
+  imports: [TypeOrmModule.forFeature([Logs])],
+  controllers: [LogsController],
+  providers: [LogsService],
+})
 export class LogsModule {}

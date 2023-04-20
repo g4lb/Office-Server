@@ -14,7 +14,7 @@ import { LogsModule } from './logs/logs.module';
       entities: [],
       synchronize: true,
     }),
-    LogsModule
+    LogsModule,
   ],
 })
 export class AppModule {}

@@ -21,9 +21,8 @@ describe('AppController (e2e)', () => {
 
     logsService = module.get<LogsService>(LogsService);
     logsRepository = module.get<Repository<Logs>>(getRepositoryToken(Logs));
-
   });
-  
+
   describe('logArrival', () => {
     it('should create a new log', async () => {
       const log = new Logs();
@@ -56,5 +55,4 @@ describe('AppController (e2e)', () => {
       `Employee ${log.employeeId} has already logged departure`,
     );
   });
-  
 });

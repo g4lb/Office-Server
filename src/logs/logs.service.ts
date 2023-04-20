@@ -5,7 +5,6 @@ import { Logs } from './logs.entity';
 
 @Injectable()
 export class LogsService {
-
   constructor(
     @InjectRepository(Logs)
     private readonly logsRepository: Repository<Logs>,
@@ -20,7 +19,10 @@ export class LogsService {
   }
 
   async logDeparture(employeeId: string) {
-    const lastLog = await this.logsRepository.findOne({ where: { employeeId }, order: { arrival: 'DESC' } });
+    const lastLog = await this.logsRepository.findOne({
+      where: { employeeId },
+      order: { arrival: 'DESC' },
+    });
     if (!lastLog) {
       throw new Error(`Employee ${employeeId} has not logged arrival`);
     }
@@ -59,7 +61,7 @@ export class LogsService {
       ],
     });
 
-  const exposedEmployees = logs.map((log) => log.employeeId);
-  return exposedEmployees;
+    const exposedEmployees = logs.map((log) => log.employeeId);
+    return exposedEmployees;
   }
 }

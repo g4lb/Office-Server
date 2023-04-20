@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MoreThan, Repository } from 'typeorm';
+import { IsNull, MoreThan, Not, Repository } from 'typeorm';
 import { Logs } from './logs.entity';
 
 @Injectable()
@@ -43,10 +43,23 @@ export class LogsService {
   async getExposedEmployees(employeeId: string) {
     const exposureDate = new Date();
     exposureDate.setDate(exposureDate.getDate() - 7);
-    const logs = await this.logsRepository.find({ where: { departure: null, arrival: MoreThan(exposureDate) } });
-    const exposedEmployees = logs
-      .filter((log) => log.employeeId !== employeeId)
-      .map((log) => log.employeeId);
-    return exposedEmployees;
+
+    const logs = await this.logsRepository.find({
+      where: [
+        {
+          employeeId: Not(employeeId),
+          arrival: MoreThan(exposureDate),
+          departure: IsNull(), // if the employee is not departure yet
+        },
+        {
+          employeeId: Not(employeeId),
+          arrival: MoreThan(exposureDate),
+          departure: Not(IsNull()),
+        },
+      ],
+    });
+
+  const exposedEmployees = logs.map((log) => log.employeeId);
+  return exposedEmployees;
   }
 }

@@ -6,9 +6,7 @@ import { LogsService } from './logs.service';
 @ApiTags('logs')
 @Controller('logs')
 export class LogsController {
-  constructor(
-    private readonly logsService: LogsService,
-  ) {}
+  constructor(private readonly logsService: LogsService) {}
 
   @ApiOperation({ summary: 'Log arrival time' }) 
   @Post(':employeeId/arrival')

@@ -12,9 +12,10 @@ To start the server, run:
 ```bash
 npm run start
 ```
-
 The server will start listening on port 5000.
-Open your web browser and navigate to http://localhost:3000/logs to access Swagger UI and explore the API endpoints.
+
+# Swagger
+Open your web browser and navigate to http://localhost:5000/logs to access Swagger UI and explore the API endpoints.
 
 # Running the Tests
 To run the tests, run:

@@ -28,6 +28,7 @@ export class LogsController {
     return this.logsService.getLogs(employeeId);
   }
 
+  @ApiOperation({ summary: 'Get all exposed employee' })
   @Post('positive-diagnosis')
   async notifyExposedEmployees(@Body() body: { employeeId: string }) {
     const exposedEmployees = await this.logsService.getExposedEmployees(body.employeeId);

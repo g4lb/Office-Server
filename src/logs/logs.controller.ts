@@ -30,8 +30,8 @@ export class LogsController {
   }
 
   @ApiOperation({ summary: 'Get all exposed employees' })
-  @Post('positive-diagnosis')
-  async notifyExposedEmployees(@Body(new JoiValidationPipe(LogsValidations.employeeIdValidator())) employeeIdRequest: EmployeeIdRequest) {
+  @Get(':employeeId/positive-diagnosis')
+  async notifyExposedEmployees(@Param(new JoiValidationPipe(LogsValidations.employeeIdValidator())) employeeIdRequest: EmployeeIdRequest) {
     const exposedEmployees = await this.logsService.getExposedEmployees(employeeIdRequest.employeeId);
     console.log(`Exposed employees: ${exposedEmployees}`);
     return { message: 'Exposure notifications sent successfully.' };

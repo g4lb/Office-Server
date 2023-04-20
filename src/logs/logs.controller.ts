@@ -1,6 +1,4 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Logs } from './logs.entity';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { LogsService } from './logs.service';
@@ -10,8 +8,6 @@ import { LogsService } from './logs.service';
 export class LogsController {
   constructor(
     private readonly logsService: LogsService,
-    @InjectRepository(Logs)
-    private readonly logsRepository: Repository<Logs>,
   ) {}
 
   @ApiOperation({ summary: 'Log arrival time' }) 
@@ -32,7 +28,6 @@ export class LogsController {
     return this.logsService.getLogs(employeeId);
   }
 
-  @ApiOperation({ summary: 'Updating All Exposed Employees' })
   @Post('positive-diagnosis')
   async notifyExposedEmployees(@Body() body: { employeeId: string }) {
     const exposedEmployees = await this.logsService.getExposedEmployees(body.employeeId);

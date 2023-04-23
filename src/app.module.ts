@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LogsModule } from './logs/logs.module';
+import { Logs } from './logs/logs.entity';
 
 @Module({
   imports: [
@@ -11,7 +12,7 @@ import { LogsModule } from './logs/logs.module';
       username: 'root',
       password: 'password',
       database: 'logs',
-      entities: [],
+      entities: [Logs],
       synchronize: true,
     }),
     LogsModule,

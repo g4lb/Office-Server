@@ -21,7 +21,7 @@ npm run test
 ```
 
 # Swagger
-Open your web browser and navigate to http://localhost:5000/logs to access Swagger UI and explore the API endpoints.
+Open your web browser and navigate to http://localhost:5000/api to access Swagger UI and explore the API endpoints.
 
 # Docker
 update the db configuration inside app.module.ts <br />

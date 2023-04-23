@@ -8,7 +8,7 @@ npm install
 ```
 
 ## DB-Installation (locally)
-start mysql server with as Docker container
+start mysql server as Docker container
 <br />
 ```bash
 docker run --rm --name mysql -p3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=logs -d mysql

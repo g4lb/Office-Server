@@ -7,7 +7,7 @@ To install the dependencies, run:
 npm install
 ```
 
-## DB-Installation
+## DB-Installation (locally)
 start mysql server with Docker, then use the inspect docker to get the root password and access to db
 <br />
 update the password to 'password', create new database called logs and create the table with the following

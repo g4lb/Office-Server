@@ -25,6 +25,7 @@ CREATE TABLE logs (
     arrival DATETIME NOT NULL,
     departure DATETIME DEFAULT NULL
 );
+```
 
 # Running the Server
 To start the server, run:

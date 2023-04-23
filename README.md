@@ -10,10 +10,15 @@ npm install
 ## DB-Installation (locally)
 start mysql server with Docker, then use the inspect docker to get the root password and access to db
 <br />
-update the password to 'password', create new database called logs and create the table with the following
+```
+start the Docker
+```bash
+docker run --rm --name mysql -p3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=logs -d mysql
+```
+
+access the DB and create new database called logs and create the table with the following
 ```bash
 sudo docker exec -it  mysql -u root -p
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
 CREATE DATABASE logs;
 USE logs;
 CREATE TABLE logs (
@@ -22,11 +27,6 @@ CREATE TABLE logs (
     arrival DATETIME NOT NULL,
     departure DATETIME DEFAULT NULL
 );
-```
-start the Docker
-```bash
-docker run --rm --name mysql -p3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=logs -d mysql
-```
 
 # Running the Server
 To start the server, run:

@@ -1,6 +1,25 @@
 # Office Server
 Office Server is a REST API server built with NestJS that allows employees to log their arrival and departure times, view their past logs, and notify the system if they have been diagnosed with COVID-19.
 
+## Pre-Installation
+start mysql server with Docker, then use the inspect docker to get the root password and access to db, then change it to 'password'
+```bash
+sudo docker exec -it  mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+CREATE DATABASE logs;
+USE logs;
+CREATE TABLE logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id VARCHAR(255) NOT NULL,
+    arrival DATETIME NOT NULL,
+    departure DATETIME DEFAULT NULL
+);
+```
+start the Docker
+```bash
+docker run --rm --name mysql -p3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=logs -d mysql
+```
+
 ## Installation
 To install the dependencies, run:
 ```bash
